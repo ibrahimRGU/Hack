@@ -10,7 +10,7 @@ if(isset($_POST["submit"]))
     $url = "test";
     $name = $_SESSION["username"];
 
-    $target_dir = "/uploads";
+    $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     $uploadOk = 1;
