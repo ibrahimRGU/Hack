@@ -1,5 +1,5 @@
 <?php
-/*include('connection.php');
+include('connection.php');
 session_start();
 $user_check=$_SESSION['username'];
 
@@ -15,26 +15,6 @@ if($row['admin']==1){
 if(!isset($user_check))
 {
 header("Location: index.php");
-}*/
+}
 ?>
 
-
-<?php 
-	include('connection.php');
-	if (isset($_SESSION['timeout']))
-		{$timein =$_SESSION['timeout'];
-	
-			$time_diff = time() - $timein;
-			if (time_diff >= 15)
-				{
-					//session expire
-					session_unset();
-					session_destroy();
-					header("location: index.php");
-				}
-					else {$_SESSION['timeout'] = time();
-			}
-
-		}
-
-?>
