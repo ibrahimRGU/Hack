@@ -1,7 +1,22 @@
 <?php
+	
+	ini_set('session.cookie_httponly',true);
 	session_start();
 	include("connection.php"); //Establishing connection with our database
+	if (isset($_SESSION['last_ip']) === false)
+		{$_SESSION [last_ip] = $_SERVER ['REMOTE_ADDR'];
+		 }
+	if ($_SESSION['last_ip'] != $_SERVER ['REMOTE_ADDR'])
+	{
+		session_unset();
+		session_destroy();
+		header(index.php);
+	}
 	
+	include("connection.php"); //Establishing connection with our database
+	
+	//include('Check.php');
+
 	$error = ""; //Variable for storing our errors.
 	if(isset($_POST["submit"]))
 	{
@@ -17,6 +32,8 @@
 			// To protect from MySQL injection
 			$username = stripslashes($username);
 			$password = stripslashes($password);
+			$username = htmlentities($username);
+			$password = htmlentities($password);
 			$username = mysqli_real_escape_string($db, $username);
 			$password = mysqli_real_escape_string($db, $password);
 			$password = md5($password);
