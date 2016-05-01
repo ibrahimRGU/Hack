@@ -1,12 +1,22 @@
 <?php
 $msg = "";
 if(isset($_POST["submit"]))
-{
-    $name = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
 
-
+{    //added htmlentities tostrip characters  and protect from xss,iframe
+    $name = htmlentities($_POST["username"]);
+    $email = htmlentities($_POST["email"]);
+    $password = htmlentities($_POST["password"]);
+    //password encrypttion
+   
+   //To protect from MySQL injection
+			$username = stripslashes($username);
+			   $email = stripslashes($email);
+			$password = stripslashes($password);
+			
+			$username = mysqli_real_escape_string($db, $username);
+			   $email = mysqli_real_escape_string($db, $email);
+			$password = mysqli_real_escape_string($db, $password);
+			$password = md5($password);
 
     $sql="SELECT email FROM users WHERE email='$email'";
     $result=mysqli_query($db,$sql);
