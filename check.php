@@ -25,7 +25,7 @@ header("Location: index.php");
 		{$timein =$_SESSION['timeout'];
 	
 			$time_diff = time() - $timein;
-			if (time_diff >= 600)
+			if (time_diff >= 15)
 				{
 					//session expire
 					session_unset();
