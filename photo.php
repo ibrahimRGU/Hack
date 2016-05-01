@@ -1,6 +1,6 @@
 <?php
-	include("check.php");
     include("connection.php");
+    include("check.php");
 ?>
 <!doctype html>
 <html>
