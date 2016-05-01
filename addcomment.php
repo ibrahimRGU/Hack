@@ -9,6 +9,14 @@ if(isset($_POST["submit"]))
     $desc = $_POST["desc"];
     $photoID = $_POST["photoID"];
     $name = $_SESSION["username"];
+           
+            //protection from sql injection
+            $desc = htmlspecialchars($desc);
+            $desc = htmlentities($desc);
+             $desc = stripslashes($desc);
+			$photoID = stripslashes($photoID);
+			$desc = mysqli_real_escape_string($db, $desc);
+			$photoID = mysqli_real_escape_string($db, $photoID);
 
     $sql="SELECT userID FROM users WHERE username='$name'";
     $result=mysqli_query($db,$sql);
