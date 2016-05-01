@@ -13,7 +13,7 @@ if(isset($_POST["submit"]))
             $title = stripslashes($title);
 			$desc = stripslashes($desc);
 			$url = stripslashes($password);
-            $url = stripslashes($name);
+            $name = stripslashes($name);
 
 			$title = htmlentities($title);
             $desc = htmlentities($desc);
