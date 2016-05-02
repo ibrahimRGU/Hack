@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>PHP Login Form with Session</title>
+<title>PHP Login Form with Session*</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
